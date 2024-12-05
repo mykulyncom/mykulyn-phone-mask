@@ -1,6 +1,6 @@
 {
   "name": "simple-phone-mask",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A simple input mask library for phone numbers",
   "author": "Serhii Mykulyn",
   "license": "MIT",
@@ -17,6 +17,9 @@
     "url": "https://github.com/mykulyncom/simple-phone-mask/issues"
   },
   "homepage": "https://github.com/mykulyncom/simple-phone-mask#readme",
+  "browserslist": [
+    "defaults"
+  ],
   "keywords": [
     "phone",
     "mask",
@@ -27,5 +30,20 @@
     "flags",
     "ip detection",
     "mykulyn"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/plugin-transform-object-assign": "^7.25.9",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  }
 }

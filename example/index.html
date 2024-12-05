@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Phone Mask Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      .input-group {
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input {
+        padding: 8px;
+        font-size: 16px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Simple Phone Mask Demo</h1>
+
+    <div class="input-group">
+      <label for="phone1">Default mask (+38):</label>
+      <input type="text" id="phone1" placeholder="+38 (___) ___ __ __" />
+    </div>
+
+    <div class="input-group">
+      <label for="phone2">Custom mask (+1):</label>
+      <input type="text" id="phone2" placeholder="+1 (___) ___-____" />
+    </div>
+
+    <script src="../dist/simple-phone-mask.min.js"></script>
+    <script>
+      // Default Ukrainian phone mask
+      new SimplePhoneMask("#phone1");
+
+      // Custom US phone mask
+      new SimplePhoneMask("#phone2", {
+        countryCode: "+1",
+        maskPattern: "(___) ___-____",
+      });
+    </script>
+  </body>
+</html>
