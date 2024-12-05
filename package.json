@@ -4,6 +4,11 @@
   "description": "A simple input mask library for phone numbers",
   "author": "Serhii Mykulyn",
   "license": "MIT",
+  "main": "src/simple-phone-mask.js",
+  "scripts": {
+    "start": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mykulyncom/simple-phone-mask.git"
