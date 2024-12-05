@@ -20,7 +20,7 @@ npm install simple-phone-mask
 ### HTML
 
 ```html
-<input type="text" id="phone" placeholder="+38 (___) ___ __ __" />
+<input type="tel" id="phone" placeholder="+38 (___) ___ __ __" />
 ```
 
 ### NPM
@@ -41,7 +41,7 @@ const customMask = new SimplePhoneMask("#custom-phone", {
 ### CDN
 
 ```html
-<script src="https://unpkg.com/simple-phone-mask@1.0.0/dist/simple-phone-mask.min.js"></script>
+<script src="https://unpkg.com/simple-phone-mask@1.0.1/dist/simple-phone-mask.min.js"></script>
 <script>
   // SimplePhoneMask is available as a global object
   new SimplePhoneMask("#phone");
