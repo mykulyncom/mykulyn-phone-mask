@@ -1,0 +1,26 @@
+{
+  "name": "simple-phone-mask",
+  "version": "0.0.1",
+  "description": "A simple input mask library for phone numbers",
+  "author": "Serhii Mykulyn",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mykulyncom/simple-phone-mask.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mykulyncom/simple-phone-mask/issues"
+  },
+  "homepage": "https://github.com/mykulyncom/simple-phone-mask#readme",
+  "keywords": [
+    "phone",
+    "mask",
+    "input mask",
+    "phone number",
+    "international",
+    "country codes",
+    "flags",
+    "ip detection",
+    "mykulyn"
+  ]
+}
