@@ -1,12 +1,12 @@
 {
   "name": "simple-phone-mask",
-  "version": "1.0.1",
-  "description": "A simple input mask library for phone numbers",
+  "version": "1.0.2",
+  "description": "A lightweight and customizable phone number input mask with country flags and selection.",
   "author": "Serhii Mykulyn",
   "license": "MIT",
   "main": "src/simple-phone-mask.js",
   "scripts": {
-    "start": "webpack --mode development",
+    "start": "webpack --mode development --watch",
     "build": "webpack --mode production"
   },
   "repository": {
