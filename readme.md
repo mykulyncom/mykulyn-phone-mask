@@ -7,13 +7,13 @@ A lightweight and customizable phone number input mask with country flags and se
 
 ## Features
 
-- 🌍 Country flag display with optional country selection
-- 🌍 Automatic country detection by IP address
-- 📱 Automatic phone number formatting based on country
-- 🎯 Custom mask patterns support
-- 🎨 Customizable display options
-- 🚀 No dependencies
-- 📦 Lightweight
+-   🌍 Country flag display with optional country selection
+-   🌍 Automatic country detection by IP address
+-   📱 Automatic phone number formatting based on country
+-   🎯 Custom mask patterns support
+-   🎨 Customizable display options
+-   🚀 No dependencies
+-   📦 Lightweight
 
 ## Demo
 
@@ -30,7 +30,11 @@ npm install simple-phone-mask
 ### CDN
 
 ```html
-<script src="https://unpkg.com/simple-phone-mask@1.0.3/dist/simple-phone-mask.min.js"></script>
+<!-- JavaScript -->
+<script src="https://unpkg.com/simple-phone-mask@1.0.4/dist/simple-phone-mask.min.js"></script>
+
+<!-- CSS -->
+<link href="https://unpkg.com/simple-phone-mask@1.0.4/dist/simple-phone-mask.min.css" rel="stylesheet" />
 ```
 
 ## Usage
@@ -45,41 +49,41 @@ npm install simple-phone-mask
 
 ```javascript
 // Basic usage with default settings (Ukraine)
-new SimplePhoneMask("#phone");
+new SimplePhoneMask('#phone');
 
 // With country flag and selection
-new SimplePhoneMask("#phone", {
-  countryCode: "UA",
-  showFlag: true,
-  allowCountrySelect: true,
+new SimplePhoneMask('#phone', {
+	countryCode: 'UA',
+	showFlag: true,
+	allowCountrySelect: true,
 });
 
 // With flag but without country selection
-new SimplePhoneMask("#phone", {
-  countryCode: "US",
-  showFlag: true,
-  allowCountrySelect: false,
+new SimplePhoneMask('#phone', {
+	countryCode: 'US',
+	showFlag: true,
+	allowCountrySelect: false,
 });
 
 // Without flag
-new SimplePhoneMask("#phone", {
-  countryCode: "PL",
-  showFlag: false,
+new SimplePhoneMask('#phone', {
+	countryCode: 'PL',
+	showFlag: false,
 });
 
 // With custom mask pattern
-new SimplePhoneMask("#phone", {
-  countryCode: "+48",
-  maskPattern: "___ ___ ___",
-  showFlag: true,
-  allowCountrySelect: false,
+new SimplePhoneMask('#phone', {
+	countryCode: '+48',
+	maskPattern: '___ ___ ___',
+	showFlag: true,
+	allowCountrySelect: false,
 });
 
 // Auto-detect country by IP
-new SimplePhoneMask("#phone", {
-  detectIP: true,
-  showFlag: true,
-  allowCountrySelect: false,
+new SimplePhoneMask('#phone', {
+	detectIP: true,
+	showFlag: true,
+	allowCountrySelect: false,
 });
 ```
 
@@ -97,21 +101,21 @@ new SimplePhoneMask("#phone", {
 
 The library supports phone number formatting for multiple countries including:
 
-- 🇺🇦 Ukraine (+380)
-- 🇺🇸 United States (+1)
-- 🇬🇧 United Kingdom (+44)
-- 🇩🇪 Germany (+49)
-- 🇫🇷 France (+33)
-- 🇵🇱 Poland (+48)
-- And many more...
+-   🇺🇦 Ukraine (+380)
+-   🇺🇸 United States (+1)
+-   🇬🇧 United Kingdom (+44)
+-   🇩🇪 Germany (+49)
+-   🇫🇷 France (+33)
+-   🇵🇱 Poland (+48)
+-   And many more...
 
 ## Browser Support
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Opera (latest)
+-   Chrome (latest)
+-   Firefox (latest)
+-   Safari (latest)
+-   Edge (latest)
+-   Opera (latest)
 
 ## Contributing
 

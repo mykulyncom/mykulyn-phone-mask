@@ -1,256 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Phone Mask Demo</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        max-width: 600px;
-        margin: 40px auto;
-        padding: 0 20px;
-      }
-      .input-group {
-        margin-bottom: 50px;
-      }
-      .input-group label {
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
-      .social-buttons {
-        display: flex;
-        gap: 10px;
-        margin: 20px 0 40px;
-      }
-      .social-button {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 16px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 500;
-        color: #fff;
-        transition: opacity 0.2s;
-      }
-      .social-button:hover {
-        opacity: 0.9;
-      }
-      .social-button img {
-        width: 20px;
-        height: 20px;
-      }
-      .github {
-        background: #24292e;
-      }
-      .npm {
-        background: #cb3837;
-      }
-      .freelancehunt {
-        background: transparent;
-        border: 1px solid #ffb21b;
-        color: #333;
-      }
-      label {
-        display: block;
-        margin-bottom: 5px;
-      }
-      input {
-        padding: 8px;
-        font-size: 16px;
-        width: 200px;
-      }
-      pre {
-        background: #f5f5f5;
-        padding: 10px;
-        border-radius: 4px;
-        margin-top: 10px;
-        position: relative;
-      }
-      code {
-        font-family: monospace;
-        font-size: 14px;
-      }
-      .copy-button {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        padding: 4px 8px;
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 12px;
-      }
-      .copy-button:hover {
-        background: #f0f0f0;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Simple Phone Mask Demo</h1>
-    <div class="social-buttons">
-      <a
-        href="https://github.com/mykulyncom/simple-phone-mask"
-        target="_blank"
-        class="social-button github"
-      >
-        <img
-          src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg"
-          alt="GitHub"
-          style="filter: invert(1)"
-        />
-        GitHub
-      </a>
-      <a
-        href="https://www.npmjs.com/package/simple-phone-mask"
-        target="_blank"
-        class="social-button npm"
-      >
-        <img
-          src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/npm.svg"
-          alt="npm"
-          style="filter: invert(1)"
-        />
-        npm
-      </a>
-      <a
-        href="https://freelancehunt.com/freelancer/jixindev.html"
-        target="_blank"
-        class="social-button freelancehunt"
-      >
-        <img
-          src="https://freelancehunt.com/static/images/freelancehunt/sm/plus.svg"
-          alt="FreelanceHunt"
-        />
-        FreelanceHunt
-      </a>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Simple Phone Mask Demo</title>
+		<link rel="stylesheet" href="../dist/simple-phone-mask.min.css" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				max-width: 600px;
+				margin: 40px auto;
+				padding: 0 20px;
+			}
+			.input-group {
+				margin-bottom: 50px;
+			}
+			.input-group label {
+				font-weight: bold;
+				margin-bottom: 20px;
+			}
+			.social-buttons {
+				display: flex;
+				gap: 10px;
+				margin: 20px 0 40px;
+			}
+			.social-button {
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				padding: 8px 16px;
+				border-radius: 6px;
+				text-decoration: none;
+				font-weight: 500;
+				color: #fff;
+				transition: opacity 0.2s;
+			}
+			.social-button:hover {
+				opacity: 0.9;
+			}
+			.social-button img {
+				width: 20px;
+				height: 20px;
+			}
+			.github {
+				background: #24292e;
+			}
+			.npm {
+				background: #cb3837;
+			}
+			.freelancehunt {
+				background: transparent;
+				border: 1px solid #ffb21b;
+				color: #333;
+			}
+			label {
+				display: block;
+				margin-bottom: 5px;
+			}
+			input {
+				padding: 8px;
+				font-size: 16px;
+				width: 200px;
+			}
+			pre {
+				background: #f5f5f5;
+				padding: 10px;
+				border-radius: 4px;
+				margin-top: 10px;
+				position: relative;
+			}
+			code {
+				font-family: monospace;
+				font-size: 14px;
+			}
+			.copy-button {
+				position: absolute;
+				top: 5px;
+				right: 5px;
+				padding: 4px 8px;
+				background: #fff;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+				cursor: pointer;
+				font-size: 12px;
+			}
+			.copy-button:hover {
+				background: #f0f0f0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Simple Phone Mask Demo</h1>
+		<div class="social-buttons">
+			<a href="https://github.com/mykulyncom/simple-phone-mask" target="_blank" class="social-button github">
+				<img
+					src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg"
+					alt="GitHub"
+					style="filter: invert(1)"
+				/>
+				GitHub
+			</a>
+			<a href="https://www.npmjs.com/package/simple-phone-mask" target="_blank" class="social-button npm">
+				<img
+					src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/npm.svg"
+					alt="npm"
+					style="filter: invert(1)"
+				/>
+				npm
+			</a>
+			<a
+				href="https://freelancehunt.com/freelancer/jixindev.html"
+				target="_blank"
+				class="social-button freelancehunt"
+			>
+				<img src="https://freelancehunt.com/static/images/freelancehunt/sm/plus.svg" alt="FreelanceHunt" />
+				FreelanceHunt
+			</a>
+		</div>
 
-    <div class="input-group">
-      <label for="phone1"
-        >Default mask with flags and country selection (Ukraine):</label
-      >
-      <input type="tel" id="phone1" />
-      <pre><code class="language-javascript">// Default Ukrainian phone mask with flags and country selection
+		<div class="input-group">
+			<label for="phone1">Default mask with flags and country selection (Ukraine):</label>
+			<input type="tel" id="phone1" />
+			<pre><code class="language-javascript">// Default Ukrainian phone mask with flags and country selection
 new SimplePhoneMask("#phone1", {
   countryCode: "UA",
   showFlag: true,
   allowCountrySelect: true
 });</code></pre>
-    </div>
+		</div>
 
-    <div class="input-group">
-      <label for="phone2"
-        >US Phone mask with flags only (no country selection):</label
-      >
-      <input type="tel" id="phone2" />
-      <pre><code class="language-javascript">// US phone mask with flags but no country selection
+		<div class="input-group">
+			<label for="phone2">US Phone mask with flags only (no country selection):</label>
+			<input type="tel" id="phone2" />
+			<pre><code class="language-javascript">// US phone mask with flags but no country selection
 new SimplePhoneMask("#phone2", {
   countryCode: "US",
   showFlag: true,
   allowCountrySelect: false
 });</code></pre>
-    </div>
+		</div>
 
-    <div class="input-group">
-      <label for="phone3">Polish mask without flags:</label>
-      <input type="tel" id="phone3" />
-      <pre><code class="language-javascript">// Polish phone mask without flags
+		<div class="input-group">
+			<label for="phone3">Polish mask without flags:</label>
+			<input type="tel" id="phone3" />
+			<pre><code class="language-javascript">// Polish phone mask without flags
 new SimplePhoneMask("#phone3", {
   countryCode: "PL",
   showFlag: false
 });</code></pre>
-    </div>
+		</div>
 
-    <div class="input-group">
-      <label for="phone4"
-        >Polish mask with flags only (no country selection) and custom
-        mask:</label
-      >
-      <input type="tel" id="phone4" />
-      <pre><code class="language-javascript">// Polish mask with flags only (no country selection) and custom mask
+		<div class="input-group">
+			<label for="phone4">Polish mask with flags only (no country selection) and custom mask:</label>
+			<input type="tel" id="phone4" />
+			<pre><code class="language-javascript">// Polish mask with flags only (no country selection) and custom mask
 new SimplePhoneMask("#phone4", {
   countryCode: "+48",
   maskPattern: "___ ___ ___",
   showFlag: true,
   allowCountrySelect: false
 });</code></pre>
-    </div>
+		</div>
 
-    <div class="input-group">
-      <label for="phone5">Auto-detected country by IP:</label>
-      <input type="tel" id="phone5" />
-      <pre><code class="language-javascript">// Phone mask with country auto-detection by IP
+		<div class="input-group">
+			<label for="phone5">Auto-detected country by IP:</label>
+			<input type="tel" id="phone5" />
+			<pre><code class="language-javascript">// Phone mask with country auto-detection by IP
 new SimplePhoneMask("#phone5", {
   detectIP: true,
   showFlag: true,
   allowCountrySelect: true
 });</code></pre>
-    </div>
+		</div>
 
-    <script src="../dist/simple-phone-mask.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
-    <script>
-      // Initialize all code blocks with copy buttons
-      document.querySelectorAll("pre code").forEach((block) => {
-        const button = document.createElement("button");
-        button.className = "copy-button";
-        button.textContent = "Copy";
+		<script src="../dist/simple-phone-mask.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+		<script>
+			// Initialize all code blocks with copy buttons
+			document.querySelectorAll('pre code').forEach((block) => {
+				const button = document.createElement('button');
+				button.className = 'copy-button';
+				button.textContent = 'Copy';
 
-        button.addEventListener("click", () => {
-          const code = block.textContent;
-          navigator.clipboard.writeText(code).then(() => {
-            button.textContent = "Copied!";
-            setTimeout(() => {
-              button.textContent = "Copy";
-            }, 2000);
-          });
-        });
+				button.addEventListener('click', () => {
+					const code = block.textContent;
+					navigator.clipboard.writeText(code).then(() => {
+						button.textContent = 'Copied!';
+						setTimeout(() => {
+							button.textContent = 'Copy';
+						}, 2000);
+					});
+				});
 
-        block.parentNode.appendChild(button);
-      });
+				block.parentNode.appendChild(button);
+			});
 
-      // Initialize phone masks
-      new SimplePhoneMask("#phone1", {
-        countryCode: "UA",
-        showFlag: true,
-        allowCountrySelect: true,
-      });
+			// Initialize phone masks
+			new SimplePhoneMask('#phone1', {
+				countryCode: 'UA',
+				showFlag: true,
+				allowCountrySelect: true,
+			});
 
-      new SimplePhoneMask("#phone2", {
-        countryCode: "US",
-        showFlag: true,
-        allowCountrySelect: false,
-      });
+			new SimplePhoneMask('#phone2', {
+				countryCode: 'US',
+				showFlag: true,
+				allowCountrySelect: false,
+			});
 
-      new SimplePhoneMask("#phone3", {
-        countryCode: "PL",
-        showFlag: false,
-      });
+			new SimplePhoneMask('#phone3', {
+				countryCode: 'PL',
+				showFlag: false,
+			});
 
-      new SimplePhoneMask("#phone4", {
-        countryCode: "+48",
-        maskPattern: "___ ___ ___",
-        showFlag: true,
-        allowCountrySelect: false,
-      });
+			new SimplePhoneMask('#phone4', {
+				countryCode: '+48',
+				maskPattern: '___ ___ ___',
+				showFlag: true,
+				allowCountrySelect: false,
+			});
 
-      new SimplePhoneMask("#phone5", {
-        detectIP: true,
-        showFlag: true,
-        allowCountrySelect: true,
-      });
-    </script>
-  </body>
+			new SimplePhoneMask('#phone5', {
+				detectIP: true,
+				showFlag: true,
+				allowCountrySelect: true,
+			});
+		</script>
+	</body>
 </html>
