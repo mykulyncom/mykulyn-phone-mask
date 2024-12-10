@@ -187,6 +187,17 @@ new SimplePhoneMask("#phone4", {
 });</code></pre>
     </div>
 
+    <div class="input-group">
+      <label for="phone5">Auto-detected country by IP:</label>
+      <input type="tel" id="phone5" />
+      <pre><code class="language-javascript">// Phone mask with country auto-detection by IP
+new SimplePhoneMask("#phone5", {
+  detectIP: true,
+  showFlag: true,
+  allowCountrySelect: true
+});</code></pre>
+    </div>
+
     <script src="../dist/simple-phone-mask.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
@@ -233,6 +244,12 @@ new SimplePhoneMask("#phone4", {
         maskPattern: "___ ___ ___",
         showFlag: true,
         allowCountrySelect: false,
+      });
+
+      new SimplePhoneMask("#phone5", {
+        detectIP: true,
+        showFlag: true,
+        allowCountrySelect: true,
       });
     </script>
   </body>

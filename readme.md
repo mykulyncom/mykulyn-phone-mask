@@ -2,23 +2,22 @@
 
 A lightweight and customizable phone number input mask with country flags and selection.
 
-_Read this in other languages: [Українська](readme-ua.md)_
-
 [![NPM Version](https://img.shields.io/npm/v/simple-phone-mask.svg)](https://www.npmjs.com/package/simple-phone-mask)
 [![GitHub License](https://img.shields.io/github/license/mykulyncom/simple-phone-mask)](https://github.com/mykulyncom/simple-phone-mask/blob/main/LICENSE)
 
 ## Features
 
 - 🌍 Country flag display with optional country selection
+- 🌍 Automatic country detection by IP address
 - 📱 Automatic phone number formatting based on country
 - 🎯 Custom mask patterns support
 - 🎨 Customizable display options
 - 🚀 No dependencies
-- 📦 Lightweight (~5KB gzipped)
+- 📦 Lightweight
 
 ## Demo
 
-Check out the [online demo](https://mykulyn.com/simple-phone-mask/) to see it in action!
+Check out the <a href="https://mykulyn.com/simple-phone-mask/" target="_blank" rel="noopener noreferrer">online demo</a> to see it in action!
 
 ## Installation
 
@@ -31,7 +30,7 @@ npm install simple-phone-mask
 ### CDN
 
 ```html
-<script src="https://unpkg.com/simple-phone-mask@1.0.2/dist/simple-phone-mask.min.js"></script>
+<script src="https://unpkg.com/simple-phone-mask@1.0.3/dist/simple-phone-mask.min.js"></script>
 ```
 
 ## Usage
@@ -75,16 +74,24 @@ new SimplePhoneMask("#phone", {
   showFlag: true,
   allowCountrySelect: false,
 });
+
+// Auto-detect country by IP
+new SimplePhoneMask("#phone", {
+  detectIP: true,
+  showFlag: true,
+  allowCountrySelect: false,
+});
 ```
 
 ## Options
 
-| Option             | Type    | Default | Description                                                        |
-| ------------------ | ------- | ------- | ------------------------------------------------------------------ |
-| countryCode        | string  | "UA"    | Country code (e.g., 'UA', 'US') or phone code (e.g., '+380', '+1') |
-| maskPattern        | string  | null    | Custom mask pattern (overrides default country mask)               |
-| showFlag           | boolean | true    | Show country flag                                                  |
-| allowCountrySelect | boolean | true    | Allow country selection from dropdown                              |
+| Option             | Type    | Default | Description                                                                                                                                            |
+| ------------------ | ------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| countryCode        | string  | "UA"    | Country code (e.g., 'UA', 'US') or phone code (e.g., '+380', '+1')                                                                                     |
+| maskPattern        | string  | null    | Custom mask pattern (overrides default country mask)                                                                                                   |
+| showFlag           | boolean | true    | Show country flag                                                                                                                                      |
+| allowCountrySelect | boolean | true    | Allow country selection from dropdown                                                                                                                  |
+| detectIP           | boolean | false   | Auto-detect country by IP address. When enabled, the `countryCode` option will be ignored and the country will be determined by the user's IP address. |
 
 ## Supported Countries
 

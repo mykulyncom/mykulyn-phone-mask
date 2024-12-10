@@ -1,6 +1,6 @@
 {
   "name": "simple-phone-mask",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A lightweight and customizable phone number input mask with country flags and selection.",
   "author": "Serhii Mykulyn",
   "license": "MIT",

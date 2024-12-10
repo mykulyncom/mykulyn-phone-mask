@@ -12,6 +12,7 @@ class SimplePhoneMask {
    * @param {string} [options.maskPattern=null] - Custom mask pattern (overrides default country mask)
    * @param {boolean} [options.showFlag=true] - Show country flag
    * @param {boolean} [options.allowCountrySelect=true] - Allow country selection from dropdown
+   * @param {boolean} [options.detectIP=false] - Detect country by IP
    */
   constructor(selector, options = {}) {
     this.selector = selector;
@@ -22,6 +23,7 @@ class SimplePhoneMask {
       maskPattern: null,
       showFlag: true,
       allowCountrySelect: true,
+      detectIP: false,
     };
 
     this.options = { ...defaultOptions, ...options };
@@ -57,7 +59,7 @@ class SimplePhoneMask {
     this.handleCountrySelect = this.handleCountrySelect.bind(this);
     this.createDropdown = this.createDropdown.bind(this);
 
-    this.init();
+    this.initialize();
   }
 
   /**
@@ -99,14 +101,20 @@ class SimplePhoneMask {
     const cursorPosition = input.selectionStart;
 
     // Prevent cursor from moving before the country code prefix
-    if ((event.key === "Backspace" || event.key === "ArrowLeft" || event.key === "ArrowUp") && cursorPosition <= this.prefixLength) {
+    if (
+      (event.key === "Backspace" ||
+        event.key === "ArrowLeft" ||
+        event.key === "ArrowUp") &&
+      cursorPosition <= this.prefixLength
+    ) {
       event.preventDefault();
       input.setSelectionRange(this.prefixLength + 1, this.prefixLength + 1);
     }
 
     // Prevent cursor from moving up when more than one digit is entered
-    const digitsEntered = input.value.replace(/\D/g, "").length - this.countryCode.length;
-    if ((event.key === "ArrowUp") && digitsEntered > 1) {
+    const digitsEntered =
+      input.value.replace(/\D/g, "").length - this.countryCode.length;
+    if (event.key === "ArrowUp" && digitsEntered > 1) {
       event.preventDefault();
     }
 
@@ -179,7 +187,9 @@ class SimplePhoneMask {
     flagButton.style.left = "5px";
     flagButton.style.top = "50%";
     flagButton.style.transform = "translateY(-50%)";
-    flagButton.style.cursor = this.options.allowCountrySelect ? "pointer" : "default";
+    flagButton.style.cursor = this.options.allowCountrySelect
+      ? "pointer"
+      : "default";
     flagButton.innerHTML = `<img src="${this.currentCountry.flag}" alt="${this.currentCountry.name}" style="width: 20px; height: 15px; object-fit: cover; border-radius: 2px;">`;
     wrapper.appendChild(flagButton);
 
@@ -214,7 +224,9 @@ class SimplePhoneMask {
           <span style="color: #666; margin-left: auto;">${country.phoneCode}</span>
         `;
 
-        option.addEventListener("click", () => this.handleCountrySelect(country, code, input));
+        option.addEventListener("click", () =>
+          this.handleCountrySelect(country, code, input)
+        );
         option.addEventListener("mouseover", () => {
           option.style.backgroundColor = "#f0f0f0";
         });
@@ -228,7 +240,8 @@ class SimplePhoneMask {
       wrapper.appendChild(dropdown);
 
       flagButton.addEventListener("click", () => {
-        dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        dropdown.style.display =
+          dropdown.style.display === "none" ? "block" : "none";
       });
 
       document.addEventListener("click", (e) => {
@@ -271,16 +284,33 @@ class SimplePhoneMask {
   /**
    * Initialize mask for all matching inputs
    */
-  init() {
+  async initialize() {
+    if (this.options.detectIP) {
+      try {
+        const countryCode = await this.detectCountryByIP();
+        this.options.countryCode = countryCode;
+
+        // Update country data after IP detection
+        const country = countryData[countryCode];
+        if (country) {
+          this.countryCode = country.phoneCode.replace("+", "");
+          this.maskPattern = this.options.maskPattern || country.mask;
+          this.prefixLength = this.countryCode.length + 1;
+          this.currentCountry = country;
+        }
+      } catch (error) {
+        console.error("Failed to detect country by IP:", error);
+      }
+    }
+
+    // Initialize inputs
     let inputs = document.querySelectorAll(this.selector);
 
     inputs.forEach((input) => {
-      // Initialize dropdown only if showFlags is true
       if (this.options.showFlag) {
         this.createDropdown(input);
       }
 
-      // Add event listeners
       input.addEventListener("input", this.createMask);
       input.addEventListener("focus", this.createMask);
       input.addEventListener("blur", this.createMask);
@@ -288,10 +318,26 @@ class SimplePhoneMask {
       input.addEventListener("keydown", this.handleKeyDown);
       input.addEventListener("select", this.handleSelect);
 
-      // Initialize mask with default values
       input.value = "+" + this.countryCode;
       this.createMask({ type: "focus", target: input });
     });
+  }
+
+  /**
+   * Detect country by IP
+   * @returns {Promise<string>} - Country code
+   */
+  async detectCountryByIP() {
+    try {
+      const response = await fetch("https://ipapi.co/json/", {
+        cache: "no-store", // Disable caching
+      });
+      const data = await response.json();
+      return data.country_code;
+    } catch (error) {
+      console.error("Error detecting country by IP:", error);
+      return this.options.countryCode;
+    }
   }
 
   /**
